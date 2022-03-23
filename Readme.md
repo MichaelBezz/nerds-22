@@ -4,7 +4,7 @@
 
 ---
 
-[Сайт дизайн-студия «NЁRDS»](https://michaelbezz.github.io/782277-nerds-33/)
+[Сайт дизайн-студия «NЁRDS»](https://michaelbezz.github.io/782277-nerds/)
 
 ---
 
