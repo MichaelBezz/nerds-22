@@ -94,6 +94,14 @@ body {
   margin-right: 198px;
 }
 
+.header-logo-image:hover {
+  fill: #FB565A;
+}
+
+.header-logo-image:active {
+  fill: #A6A6A6;
+}
+
 .header-navigation {
   margin-right: auto;
 }
@@ -108,6 +116,7 @@ body {
 }
 
 .navigation-link {
+  position: relative;
   display: block;
   padding: 8px;
   line-height: 30px;
@@ -117,17 +126,41 @@ body {
   color: #000000;
 }
 
-.header-cart-link {
-  margin-right: -8px;
-  padding-left: 40px;
+.header-cart {
   background-image: url("../images/icon/cart-icon.svg");
   background-repeat: no-repeat;
-  background-position: left top 14px;
+  background-position: left 8px top 14px;
+}
+
+.header-cart-link {
+  margin-right: -8px;
+  padding-left: 48px;
+}
+
+.navigation-link:hover,
+.header-cart-link:hover {
+  color: #FB565A;
 }
 
 .navigation-item:focus-within,
 .header-cart:focus-within {
   z-index: 1;
+}
+
+.navigation-link:active,
+.header-cart-link:active {
+  color: #000000;
+  opacity: 0.3;
+}
+
+.navigation-link-active::after {
+  position: absolute;
+  right: 8px;
+  bottom: 0;
+  left: 8px;
+  content: "";
+  height: 2px;
+  background-color: #FB565A;
 }
 
 /* slide - стили основного слайдера */
@@ -185,6 +218,16 @@ body {
   padding: 16px 54px;
 }
 
+.slide-button:hover {
+  background-color: #E74246;
+}
+
+.slide-button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #D7373B;
+  box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
+}
+
 /* slide-pagination - навигация по слайдеру */
 
 .slide-pagination {
@@ -206,6 +249,14 @@ body {
   border: 0;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.slide-pagination-button:hover {
+  background-color: #DFDFDF;
+}
+
+.slide-pagination-button:active {
+  background-color: #D5D5D5;
 }
 
 .pagination-button-active {
@@ -268,12 +319,42 @@ body {
   padding: 16px 40px;
 }
 
+.product-button:hover {
+  background-color: #E74246;
+}
+
+.product-button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #D7373B;
+  box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
+}
+
 .product-button-green {
   background-color: #00CA74;
 }
 
+.product-button-green:hover {
+  background-color: #00BC6C;
+}
+
+.product-button-green:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #00AA62;
+  box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
+}
+
 .product-button-yellow {
   background-color: #EFC849;
+}
+
+.product-button-yellow:hover {
+  background-color: #EAB534;
+}
+
+.product-button-yellow:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #EAB534;
+  box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
 }
 
 /* about - стили раздела о компании */
@@ -440,6 +521,18 @@ body {
   display: block;
 }
 
+.partner-image {
+  opacity: 0.2;
+}
+
+.partner-image:hover {
+  opacity: 1;
+}
+
+.partner-image:active {
+  opacity: 0.1;
+}
+
 /* main-footer - стили общего footer */
 
 /* map - стили карты и контактов */
@@ -502,9 +595,27 @@ body {
   color: #666666;
 }
 
+.contacts-telephone:hover {
+  color: #000000;
+}
+
+.contacts-telephone:active {
+  color: #D5D5D5;
+}
+
 .contacts-button {
   width: 220px;
   padding: 16px 44px;
+}
+
+.contacts-button:hover {
+  background-color: #E74246;
+}
+
+.contacts-button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #D7373B;
+  box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
 }
 
 /* social - стили для блока социальных сетей */
@@ -528,6 +639,7 @@ body {
 }
 
 .social-button {
+  position: relative;
   display: block;
   width: 80px;
   height: 80px;
@@ -537,16 +649,26 @@ body {
   border-radius: 50%;
 }
 
-.social-button-vkontakte {
-  background-image: url("../images/icon/vkontakte-icon.svg");
+.social-button:hover {
+  background-color: #E74246;
 }
 
-.social-button-facebook {
-  background-image: url("../images/icon/facebook-icon.svg");
+.social-button:active {
+  background-color: #D7373B;
+  box-shadow: inset 0px 3px 0px rgba(0, 1, 1, 0.1);
 }
 
-.social-button-instagram {
-  background-image: url("../images/icon/instagram-icon.svg");
+.social-button:active .social-icon {
+  opacity: 0.3;
+}
+
+.social-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
 
 .social-promo-title {
