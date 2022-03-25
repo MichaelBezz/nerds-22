@@ -1,3 +1,5 @@
+/* общие стили проекта NERDS */
+
 *,
 *::before,
 *::after {
@@ -142,6 +144,7 @@ body {
   color: #FB565A;
 }
 
+.header-logo:focus-within,
 .navigation-item:focus-within,
 .header-cart:focus-within {
   z-index: 1;
@@ -156,14 +159,14 @@ body {
 .navigation-link-active::after {
   position: absolute;
   right: 8px;
-  bottom: 0;
+  bottom: -6px;
   left: 8px;
   content: "";
   height: 2px;
   background-color: #FB565A;
 }
 
-/* slide - стили основного слайдера */
+/* slide - стили слайдера */
 
 .slide-section {
   margin-bottom: 82px;
@@ -688,20 +691,152 @@ body {
 
 /* catalog - стили страницы каталога */
 
+/* catalog-header - стили header страницы catalog */
+
+.catalog-header {
+  min-height: 240px;
+  margin-bottom: 56px;
+  background-color: #EEEEEE;
+}
+
 .catalog-header-title {
-  font-weight: 500;
+  margin: 0;
+  padding: 78px 208px;
   font-size: 55px;
   line-height: 55px;
   font-weight: 500;
   color: #000000;
 }
 
+/* общие стили раскладки catalog */
+
+.catalog-container {
+  display: grid;
+  grid-template-columns: 260px 760px;
+  grid-template-areas:
+    "filter sort      "
+    "filter catalog   "
+    "filter pagination";
+  column-gap: 140px;
+}
+
+.filter-section {
+  grid-area: filter;
+}
+
+.sort-section {
+  grid-area: sort;
+}
+
+.catalog-section {
+  grid-area: catalog;
+}
+
+.pagination-section {
+  grid-area: pagination;
+}
+
+/* filter-section - стили фильтра */
+
+.filter-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 .filter-title {
+  padding: 0;
   font-size: 18px;
   line-height: 30px;
   font-weight: 700;
   text-transform: uppercase;
   color: #000000;
+}
+
+.filter-label span {
+  line-height: 19px;
+}
+
+/* cost - стилизация range с двумя пинами */
+
+.filter-group:nth-child(1) {
+  margin-bottom: 56px;
+}
+
+.filter-group:nth-child(1) .filter-title {
+  margin-bottom: 48px;
+}
+
+.cost-scale {
+  position: relative;
+  width: 260px;
+  height: 80px;
+  margin-bottom: 12px;
+  padding: 39px 27px;
+  background-color: #EEEEEE;
+  border-radius: 3px;
+}
+
+.cost-scale-level {
+  position: relative;
+  width: 205px;
+  height: 2px;
+  background-color: #D7DCDF;
+}
+
+.cost-scale-bar {
+  position: absolute;
+  left: 0;
+  width: 70%;
+  height: 2px;
+  background-color: #00CA74;;
+}
+
+.cost-scale-pin {
+  position: absolute;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background-color: #FFFFFF;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.cost-scale-pin::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin: auto;
+  background-color: #ABABAB;
+  border-radius: 50%;
+}
+
+.pin-min {
+  left: 18px;
+}
+
+.pin-max {
+  right: 80px;
+}
+
+.cost-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 114px;
 }
 
 .cost-label {
@@ -710,20 +845,109 @@ body {
 }
 
 .cost-input {
+  width: 80px;
+  min-height: 38px;
+  padding: 4px;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
   text-transform: uppercase;
+  text-align: center;
   color: #283136;
+  background-color: #EEEEEE;
+  border: 0;
+  border-radius: 3px;
+  appearance: textfield;
 }
 
-.filter-label span {
-  line-height: 19px;
+.cost-input::-webkit-outer-spin-button,
+.cost-input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* radio - стили */
+
+.filter-group:nth-child(2) {
+  margin-bottom: 28px;
+}
+
+.filter-group:nth-child(2) .filter-title {
+  margin-bottom: 14px;
+}
+
+.filter-item {
+  margin-bottom: 16px;
+}
+
+.filter-label {
+  position: relative;
+  padding-left: 36px;
+}
+
+.control-radio {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin-top: -1px;
+  margin-left: -36px;
+  background-image: url("../images/icon/radio-off.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filter-input:checked ~ .control-radio {
+  background-image: url("../images/icon/radio-on.svg");
+}
+
+/* checkbox - стили */
+
+.filter-group:nth-child(3) {
+  margin-bottom: 32px;
+}
+
+.filter-group:nth-child(3) .filter-title {
+  margin-bottom: 12px;
+}
+
+.control-checkbox {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin-top: -1px;
+  margin-left: -36px;
+  background-image: url("../images/icon/checkbox-off.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filter-input:checked ~ .control-checkbox {
+  background-image: url("../images/icon/checkbox-on.svg");
+}
+
+/* filter-button - стили кнопки формы */
+
+.filter-button {
+  width: 260px;
+  padding: 16px 88px;
+  color: #000000;
+  background-color: #EEEEEE;
+}
+
+/* sort-section - стили сортировки */
+
+.sort-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 48px;
 }
 
 .sort-title {
+  width: 200px;
+  margin: 0;
+  margin-right: auto;
   font-size: 18px;
   line-height: 30px;
   font-weight: 700;
@@ -731,7 +955,19 @@ body {
   color: #000000;
 }
 
+.sort-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  margin-right: 16px;
+}
+
+.sort-item:not(:last-child) {
+  margin-right: 14px;
+}
+
 .sort-button {
+  padding: 6px;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-size: 14px;
@@ -749,7 +985,101 @@ body {
   opacity: 1;
 }
 
+.range-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60px;
+  margin-right: -10px;
+}
+
+.range-item {
+  line-height: 18px;
+}
+
+.range-button {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  background-color: transparent;
+  background-image: url("../images/icon/range-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.range-button-top {
+  transform: rotate(180deg);
+}
+
+.range-button-active {
+  opacity: 1;
+}
+
+/* catalog-section - стили карточек каталога */
+
+.catalog-section {
+  margin-bottom: 54px;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 360px);
+  column-gap: 40px;
+  row-gap: 30px;
+}
+
+.catalog-item {
+  position: relative;
+  min-height: 620px;
+  padding-top: 39px;
+  background-color: #F2F2F2;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.catalog-item::before {
+  position: absolute;
+  top: 0;
+  content: "";
+  width: 360px;
+  height: 40px;
+  background-image: url("../images/icon/browser.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  opacity: 0.1;
+}
+
+.catalog-item:hover {
+  box-shadow: 0px 6px 15px rgba(0, 1, 1, 0.25);
+}
+
+.catalog-item:hover::before {
+  opacity: 1;
+}
+
+.catalog-item:hover .catalog-description {
+  display: flex;
+}
+
+.catalog-description {
+  position: absolute;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 230px;
+  padding: 26px;
+  background-color: #EEEEEE;
+}
+
 .catalog-link {
+  display: block;
+  margin-bottom: 12px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -757,21 +1087,60 @@ body {
 }
 
 .catalog-title {
+  margin: 0;
   font-size: 18px;
   line-height: 30px;
 }
 
 .catalog-text {
+  margin: 0;
+  margin-bottom: 32px;
   line-height: 18px;
   text-align: center;
   color: #666666;
 }
 
+.catalog-button {
+  width: 200px;
+  padding: 16px 72px;
+}
+
+/* pagination-section - стили постраничной навигации */
+
+.pagination-section {
+  margin-bottom: 60px;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pagination-item:not(:last-child) {
+  margin-right: 11px;
+}
+
 .pagination-link {
+  display: block;
+  min-width: 50px;
+  min-height: 50px;
+  padding: 13px;
   line-height: 18px;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
   color: #000000;
+  background-color: #EEEEEE;
+  border: 3px solid #EEEEEE;
+  border-radius: 3px;
+}
+
+.pagination-link-large {
+  width: 260px;
+}
+
+.pagination-link-active {
+  background-color: #FFFFFF;
+  border-color: #DBDBDB;
 }
