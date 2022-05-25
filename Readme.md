@@ -4,7 +4,9 @@
 
 ---
 
-[Сайт дизайн-студия «NЁRDS»](https://michaelbezz.github.io/782277-nerds/)
+Демонстрация проекта:
+
+["NЁRDS" - маленькая, но гордая дизайн-студия из Краснодара](https://michaelbezz.github.io/782277-nerds/)
 
 ---
 
